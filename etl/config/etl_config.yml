@@ -1,0 +1,66 @@
+# ETL 全局配置
+global:
+  max_retries: 3
+  retry_delay: 5  # seconds
+  timeout: 3600   # seconds
+  batch_size: 1000
+  parallel_jobs: 4
+
+# 数据源配置
+sources:
+  postgres:
+    type: database
+    connection_timeout: 30
+    max_connections: 10
+    batch_size: 5000
+  
+  s3:
+    type: object_storage
+    max_concurrent_requests: 10
+    multipart_threshold: 100MB
+    max_pool_connections: 50
+
+# 转换配置
+transformations:
+  default_timezone: UTC
+  date_format: "%Y-%m-%d %H:%M:%S"
+  null_handling: drop
+  string_encoding: utf-8
+  numeric_precision: 2
+
+# 目标配置
+destinations:
+  data_warehouse:
+    type: redshift
+    write_mode: upsert
+    batch_size: 10000
+    timeout: 600
+
+# 监控配置
+monitoring:
+  metrics:
+    - type: latency
+      threshold_ms: 1000
+    - type: error_rate
+      threshold_percent: 5
+    - type: throughput
+      min_records_per_second: 100
+  
+  alerts:
+    email:
+      enabled: true
+      recipients: ["data-team@company.com"]
+    slack:
+      enabled: true
+      channel: "#data-pipeline-alerts"
+
+# 日志配置
+logging:
+  level: INFO
+  format: "%(asctime)s [%(levelname)s] %(name)s: %(message)s"
+  handlers:
+    - type: console
+    - type: file
+      filename: logs/etl.log
+      max_bytes: 10485760  # 10MB
+      backup_count: 5

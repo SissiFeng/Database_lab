@@ -1,0 +1,42 @@
+name: 'lab_analytics'
+version: '1.0.0'
+config-version: 2
+
+profile: 'lab_warehouse'
+
+model-paths: ["models"]
+analysis-paths: ["analyses"]
+test-paths: ["tests"]
+seed-paths: ["seeds"]
+macro-paths: ["macros"]
+
+target-path: "target"
+clean-targets:
+    - "target"
+    - "dbt_packages"
+    - "logs"
+
+models:
+  lab_analytics:
+    staging:
+      +materialized: view
+      +schema: staging
+      +tags: ["staging"]
+      
+    intermediate:
+      +materialized: table
+      +schema: intermediate
+      +tags: ["intermediate"]
+      
+    marts:
+      +materialized: table
+      +schema: marts
+      +tags: ["marts"]
+      experiments:
+        +schema: marts_experiments
+      analysis:
+        +schema: marts_analysis
+
+vars:
+  start_date: '2023-01-01'
+  "dbt_date:time_zone": "UTC"

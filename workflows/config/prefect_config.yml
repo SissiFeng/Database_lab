@@ -1,0 +1,32 @@
+prefect:
+  flow_runner:
+    type: "dask"
+    cluster_kwargs:
+      n_workers: 4
+      threads_per_worker: 2
+
+  task_runner:
+    type: "concurrent"
+    max_workers: 10
+
+  storage:
+    type: "s3"
+    bucket: "prefect-flows"
+    key_prefix: "prod/"
+
+  scheduling:
+    default_retries: 3
+    retry_delay_seconds: 30
+    timeout_seconds: 3600
+
+monitoring:
+  notifications:
+    slack:
+      webhook_url: "${SLACK_WEBHOOK_URL}"
+      channel: "#data-pipelines"
+    email:
+      recipients: ["data-team@company.com"]
+
+logging:
+  level: "INFO"
+  format: "%(asctime)s - %(name)s - %(levelname)s - %(message)s"

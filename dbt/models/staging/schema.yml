@@ -1,0 +1,32 @@
+version: 2
+
+models:
+  - name: stg_experiments
+    description: "Staged experiment data"
+    columns:
+      - name: experiment_sk
+        description: "Surrogate key for experiment"
+        tests:
+          - unique
+          - not_null
+      
+      - name: experiment_id
+        description: "Natural key for experiment"
+        tests:
+          - unique
+          - not_null
+      
+      - name: status
+        description: "Current status of experiment"
+        tests:
+          - accepted_values:
+              values: ['setup', 'running', 'completed', 'failed', 'cancelled']
+
+      - name: actual_start_time
+        description: "Actual start time of experiment"
+        tests:
+          - not_null
+          - dbt_utils.date_in_range:
+              min_date: '2023-01-01'
+              max_date: "{{ var('run_date', 'current_timestamp') }}"
+

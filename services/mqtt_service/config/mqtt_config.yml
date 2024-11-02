@@ -1,0 +1,20 @@
+mqtt:
+  broker_host: "mqtt.lab.local"
+  broker_port: 1883
+  username: "${MQTT_USER}"
+  password: "${MQTT_PASSWORD}"
+  
+topics:
+  equipment:
+    measurements: "lab/equipment/+/measurements"
+    status: "lab/equipment/+/status"
+    control: "lab/equipment/+/control"
+    
+qos_levels:
+  measurements: 1
+  status: 1
+  control: 2
+  
+retry:
+  max_attempts: 3
+  delay_seconds: 5

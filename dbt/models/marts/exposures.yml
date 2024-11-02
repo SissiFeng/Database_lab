@@ -1,0 +1,82 @@
+version: 2
+
+exposures:
+  - name: experiment_performance_dashboard
+    type: dashboard
+    maturity: high
+    url: https://tableau.company.com/#/views/ExperimentPerformance/Overview
+    description: >
+      实验性能监控仪表板，展示关键实验指标和趋势分析。
+      包括实验成功率、样本处理时间和质量指标。
+
+    owner:
+      name: Data Science Team
+      email: data-science@company.com
+
+    depends_on:
+      - ref('fct_experiment_performance')
+      - ref('dim_experiment_protocols')
+      - ref('agg_daily_metrics')
+
+    meta:
+      tableau:
+        workbook_name: ExperimentPerformance
+        refresh_schedule: "0 */4 * * *"  # 每4小时
+        project: Lab Analytics
+        sheets:
+          - name: Overview
+            type: dashboard
+            refresh_priority: 1
+          - name: Detailed Metrics
+            type: worksheet
+            refresh_priority: 2
+
+  - name: sample_quality_report
+    type: report
+    maturity: medium
+    url: https://tableau.company.com/#/views/SampleQuality/Weekly
+    description: >
+      每周样本质量报告，用于质量保证团队审查。
+      包括异常检测和质量趋势分析。
+
+    owner:
+      name: QA Team
+      email: qa-team@company.com
+
+    depends_on:
+      - ref('fct_sample_quality')
+      - ref('dim_quality_standards')
+      - metric('avg_quality_score')
+
+    meta:
+      tableau:
+        workbook_name: SampleQuality
+        refresh_schedule: "0 0 * * 1"  # 每周一
+        project: Quality Assurance
+        audience: ["qa_team", "lab_managers"]
+
+  - name: experiment_cost_analysis
+    type: analysis
+    maturity: low
+    url: https://tableau.company.com/#/views/ExperimentCosts/CostBreakdown
+    description: >
+      实验成本分析报告，用于财务规划和预算控制。
+      包括资源使用和成本分配分析。
+
+    owner:
+      name: Finance Team
+      email: finance@company.com
+
+    depends_on:
+      - ref('fct_experiment_costs')
+      - ref('dim_cost_centers')
+      - metric('total_experiment_cost')
+
+    meta:
+      tableau:
+        workbook_name: ExperimentCosts
+        refresh_schedule: "0 0 1 * *"  # 每月1号
+        project: Financial Analytics
+        data_sensitivity: high
+        access_control:
+          groups: ["finance_team", "senior_management"]

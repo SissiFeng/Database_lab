@@ -1,0 +1,29 @@
+cleaning:
+  remove_duplicates: true
+  null_handling:
+    numeric_col: mean
+    categorical_col: mode
+    required_col: drop
+  outlier_handling:
+    numeric_col:
+      method: iqr
+
+transform:
+  dtype_mapping:
+    categorical_col: category
+    date_col: datetime64[ns]
+  scaling:
+    numeric_col: standard
+  encoding:
+    categorical_col: onehot
+
+feature:
+  feature_combinations:
+    - name: feature_product
+      columns: [col1, col2]
+      method: multiply
+  datetime_features: [date_col]
+  window_features:
+    - column: numeric_col
+      window: 7
+      operations: [mean, std]
