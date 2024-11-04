@@ -258,6 +258,8 @@ The system includes a modern web interface built with React, providing an intuit
    - Equipment status monitoring
    - Experiment progress tracking
    - Key performance indicators visualization
+     
+<img width="1783" alt="截屏2024-11-04 12 12 27" src="https://github.com/user-attachments/assets/fa76404e-86f5-4e37-a22a-eb553b786089">
 
 2. **Equipment Management**
    - Comprehensive equipment listing
@@ -266,18 +268,22 @@ The system includes a modern web interface built with React, providing an intuit
    - Equipment performance monitoring
    - Location tracking across laboratory rooms
 
+<img width="1786" alt="截屏2024-11-04 12 12 37" src="https://github.com/user-attachments/assets/a882e3a6-bbaa-4895-b5f7-67c0600470d3">
+
 3. **Experiment Management**
    - Experiment creation and tracking
    - Workflow design and execution
    - Real-time experiment status updates
    - Data collection and validation
    - Results visualization
+<img width="1784" alt="截屏2024-11-04 12 12 51" src="https://github.com/user-attachments/assets/f61d4ad9-a822-43db-889b-e087fba32283">
 
 4. **Data Analysis**
    - Interactive data visualization
    - Custom report generation
    - Data export capabilities
    - Trend analysis and insights
+<img width="1785" alt="截屏2024-11-04 12 13 00" src="https://github.com/user-attachments/assets/362ca753-8ed9-42f3-86b9-845cff927768">
 
 ### Technical Stack
 
