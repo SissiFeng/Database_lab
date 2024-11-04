@@ -1,0 +1,74 @@
+.data-table {
+    width: 100%;
+    overflow-x: auto;
+  }
+  
+  .data-table table {
+    width: 100%;
+    border-collapse: collapse;
+  }
+  
+  .data-table th,
+  .data-table td {
+    padding: 1rem;
+    text-align: left;
+    border-bottom: 1px solid #e5e7eb;
+  }
+  
+  .data-table th {
+    background: #f9fafb;
+    font-weight: 500;
+    color: #374151;
+  }
+  
+  .data-table tr:hover {
+    background: #f9fafb;
+  }
+  
+  .status-badge {
+    padding: 0.25rem 0.75rem;
+    border-radius: 9999px;
+    font-size: 0.875rem;
+    font-weight: 500;
+  }
+  
+  .status-badge.normal {
+    background: #dcfce7;
+    color: #166534;
+  }
+  
+  .status-badge.warning {
+    background: #fef3c7;
+    color: #92400e;
+  }
+  
+  .status-badge.error {
+    background: #fee2e2;
+    color: #991b1b;
+  }
+  
+  .data-table .pagination {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    padding: 1rem;
+    gap: 0.5rem;
+  }
+  
+  .data-table .pagination button {
+    padding: 0.25rem 0.5rem;
+    border: 1px solid #d1d5db;
+    background: white;
+    border-radius: 4px;
+    cursor: pointer;
+  }
+  
+  .data-table .pagination button:hover {
+    background: #f3f4f6;
+  }
+  
+  .data-table .pagination button.active {
+    background: #3b82f6;
+    color: white;
+    border-color: #3b82f6;
+  }

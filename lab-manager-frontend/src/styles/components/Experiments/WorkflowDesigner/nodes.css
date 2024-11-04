@@ -1,0 +1,59 @@
+.experiment-node {
+  padding: 10px;
+  border-radius: 5px;
+  background: #fff;
+  border: 1px solid #3b82f6;
+  min-width: 150px;
+}
+
+.data-processing-node {
+  padding: 10px;
+  border-radius: 5px;
+  background: #fff;
+  border: 1px solid #10b981;
+  min-width: 150px;
+}
+
+.analysis-node {
+  padding: 10px;
+  border-radius: 5px;
+  background: #fff;
+  border: 1px solid #8b5cf6;
+  min-width: 150px;
+}
+
+.node-content {
+  padding: 8px;
+}
+
+.node-content h4 {
+  margin: 0 0 8px 0;
+  font-size: 14px;
+  font-weight: 500;
+}
+
+.node-params {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.param-row {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.param-row span {
+  font-size: 12px;
+  color: #6b7280;
+  min-width: 60px;
+}
+
+.param-row input {
+  flex: 1;
+  padding: 4px 8px;
+  border: 1px solid #e5e7eb;
+  border-radius: 4px;
+  font-size: 12px;
+}

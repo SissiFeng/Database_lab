@@ -1,0 +1,122 @@
+development:
+  aws_access_key_id: your_access_key
+  aws_secret_access_key: your_secret_key
+  region: ap-northeast-1
+  bucket_name: experiment-data-dev
+  
+  endpoints:
+    images: images/
+    results: analysis-results/
+    reports: reports/
+    
+  storage_classes:
+    hot_tier:
+      class: STANDARD
+      access_pattern: frequent  # 频繁访问
+      max_size_mb: 1000
+    warm_tier:
+      class: STANDARD_IA
+      access_pattern: infrequent  # 不频繁访问
+      transition_days: 30
+    cold_tier:
+      class: GLACIER
+      access_pattern: archive  # 归档
+      transition_days: 90
+
+  intelligent_tiering:
+    enabled: true
+    rules:
+      - pattern: "*.tiff"
+        initial_tier: hot_tier
+        access_monitoring: true
+      - pattern: "*.csv"
+        initial_tier: warm_tier
+        compression: true
+      - pattern: "experiment_*.log"
+        initial_tier: cold_tier
+        encryption: true
+
+  auto_scaling:
+    enabled: true
+    max_concurrent_requests:
+      default: 10
+      peak_hours: 20  # 高峰时段
+      off_peak: 5     # 低峰时段
+    peak_hours: "09:00-18:00"
+    peak_days: "MON-FRI"
+
+  performance_optimization:
+    multipart_upload:
+      enabled: true
+      threshold_mb: 100
+      part_size_mb: 10
+    compression:
+      enabled: true
+      formats: ['.tiff', '.csv', '.log']
+      min_size_mb: 10
+    caching:
+      enabled: true
+      max_age_seconds: 3600
+      patterns: ['*.jpg', '*.png']
+
+  monitoring:
+    metrics:
+      - type: latency
+        threshold_ms: 1000
+        alert: true
+      - type: error_rate
+        threshold_percent: 5
+        alert: true
+      - type: bandwidth
+        threshold_mb: 1000
+        alert: true
+    auto_recovery:
+      enabled: true
+      max_retries: 3
+      backoff_seconds: 5
+
+  cost_optimization:
+    lifecycle_rules:
+      images:
+        access_monitoring: true
+        transition_schedule:
+          - days: 30
+            storage_class: STANDARD_IA
+          - days: 90
+            storage_class: GLACIER
+        expiration_days: 365
+      results:
+        access_monitoring: true
+        transition_schedule:
+          - days: 60
+            storage_class: STANDARD_IA
+          - days: 180
+            storage_class: GLACIER
+        expiration_days: 730
+      reports:
+        compression: true
+        transition_schedule:
+          - days: 90
+            storage_class: GLACIER
+        expiration_days: 1825
+
+  data_protection:
+    versioning: enabled
+    encryption:
+      enabled: true
+      type: AES256
+    backup:
+      enabled: true
+      frequency: daily
+      retention_days: 30
+    cross_region_replication:
+      enabled: true
+      region: ap-northeast-2
+
+production:
+  # ... [与development类似，但使用环境变量] ...
+  aws_access_key_id: ${AWS_ACCESS_KEY_ID}
+  aws_secret_access_key: ${AWS_SECRET_ACCESS_KEY}
+  region: ${AWS_REGION}
+  bucket_name: ${S3_BUCKET_NAME}
+  # ... [其他配置与development类似，但阈值更高] ...

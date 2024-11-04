@@ -246,3 +246,62 @@ Key configuration files:
 - `config/database.yml` - Database connection settings
 - `config/processing_config.yml` - Data processing parameters
 - `config/prefect_config.yml` - Workflow settings
+
+## Frontend Interface
+
+The system includes a modern web interface built with React, providing an intuitive way to interact with the laboratory database system.
+
+### Interface Features
+
+1. **Dashboard Overview**
+   - Real-time statistics of laboratory operations
+   - Equipment status monitoring
+   - Experiment progress tracking
+   - Key performance indicators visualization
+
+2. **Equipment Management**
+   - Comprehensive equipment listing
+   - Status tracking (Online, Offline, In Use, Maintenance)
+   - Usage statistics and maintenance schedules
+   - Equipment performance monitoring
+   - Location tracking across laboratory rooms
+
+3. **Experiment Management**
+   - Experiment creation and tracking
+   - Workflow design and execution
+   - Real-time experiment status updates
+   - Data collection and validation
+   - Results visualization
+
+4. **Data Analysis**
+   - Interactive data visualization
+   - Custom report generation
+   - Data export capabilities
+   - Trend analysis and insights
+
+### Technical Stack
+
+- **Frontend Framework**: React
+- **UI Components**: Custom-designed components for laboratory management
+- **State Management**: React Hooks
+- **Routing**: React Router
+- **Styling**: CSS Modules
+- **Build Tool**: Vite
+
+### Getting Started with Frontend
+
+```bash
+# Navigate to frontend directory
+cd lab-manager-frontend
+
+# Install dependencies
+npm install
+
+# Start development server
+npm run dev
+
+# Build for production
+npm run build
+```
+
+The interface will be available at `http://localhost:5173` by default.

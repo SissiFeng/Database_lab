@@ -1,0 +1,24 @@
+.footer {
+    background: #2b2d42;
+    color: #edf2f4;
+    padding: 0.75rem 2rem;
+    border-top: 1px solid #3d405b;
+  }
+  
+  .footer-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  
+  .status-text {
+    color: #4caf50;
+  }
+  
+  .last-sync {
+    color: #8d99ae;
+  }
+  
+  .version {
+    color: #8d99ae;
+  }

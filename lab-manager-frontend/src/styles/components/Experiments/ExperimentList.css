@@ -1,0 +1,83 @@
+.experiment-list {
+    background: white;
+    border-radius: 8px;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+    overflow: auto;
+  }
+  
+  table {
+    width: 100%;
+    border-collapse: collapse;
+  }
+  
+  th, td {
+    padding: 1rem;
+    text-align: left;
+    border-bottom: 1px solid #e5e7eb;
+  }
+  
+  th {
+    background: #f9fafb;
+    font-weight: 500;
+    color: #374151;
+  }
+  
+  .status-badge {
+    padding: 0.25rem 0.75rem;
+    border-radius: 9999px;
+    font-size: 0.875rem;
+    font-weight: 500;
+  }
+  
+  .status-running {
+    background: #dbeafe;
+    color: #1e40af;
+  }
+  
+  .status-completed {
+    background: #dcfce7;
+    color: #166534;
+  }
+  
+  .status-paused {
+    background: #fef3c7;
+    color: #92400e;
+  }
+  
+  .status-failed {
+    background: #fee2e2;
+    color: #991b1b;
+  }
+  
+  .progress-bar {
+    width: 150px;
+    height: 8px;
+    background: #e5e7eb;
+    border-radius: 4px;
+    position: relative;
+  }
+  
+  .progress-fill {
+    position: absolute;
+    height: 100%;
+    background: #3b82f6;
+    border-radius: 4px;
+    transition: width 0.3s ease;
+  }
+  
+  .action-buttons {
+    display: flex;
+    gap: 0.5rem;
+  }
+  
+  .btn-icon {
+    padding: 0.25rem;
+    border: none;
+    background: none;
+    cursor: pointer;
+    border-radius: 4px;
+  }
+  
+  .btn-icon:hover {
+    background: #f3f4f6;
+  }

@@ -1,0 +1,58 @@
+.analysis-page {
+    padding: 2rem;
+  }
+  
+  .analysis-tabs {
+    display: flex;
+    gap: 1rem;
+    margin-bottom: 2rem;
+    border-bottom: 1px solid #e5e7eb;
+    padding-bottom: 1rem;
+  }
+  
+  .tab-button {
+    padding: 0.5rem 1rem;
+    border: none;
+    background: none;
+    font-size: 1rem;
+    color: #6b7280;
+    cursor: pointer;
+    border-bottom: 2px solid transparent;
+  }
+  
+  .tab-button.active {
+    color: #3b82f6;
+    border-bottom-color: #3b82f6;
+  }
+  
+  .charts-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(500px, 1fr));
+    gap: 1.5rem;
+  }
+  
+  .data-section {
+    background: white;
+    border-radius: 8px;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+    padding: 1.5rem;
+  }
+  
+  .data-filters {
+    display: flex;
+    gap: 1rem;
+    margin-bottom: 1.5rem;
+  }
+  
+  .search-input,
+  .date-input,
+  .filter-select {
+    padding: 0.5rem;
+    border: 1px solid #d1d5db;
+    border-radius: 4px;
+  }
+  
+  .search-input {
+    flex: 1;
+    max-width: 300px;
+  }

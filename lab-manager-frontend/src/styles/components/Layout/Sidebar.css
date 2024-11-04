@@ -1,0 +1,75 @@
+.sidebar {
+    width: 250px;
+    background: #2b2d42;
+    color: #edf2f4;
+    height: 100vh;
+    padding: 1rem;
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .logo-container {
+    padding: 1rem;
+    text-align: center;
+    border-bottom: 1px solid #3d405b;
+  }
+  
+  .nav-menu {
+    margin-top: 2rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+  
+  .nav-item {
+    display: flex;
+    align-items: center;
+    padding: 0.75rem 1rem;
+    border-radius: 8px;
+    text-decoration: none;
+    color: #edf2f4;
+    transition: all 0.2s ease;
+    margin-bottom: 0.5rem;
+  }
+  
+  .nav-item:hover {
+    background: rgba(255, 255, 255, 0.1);
+  }
+  
+  .nav-item.active {
+    background: rgba(255, 255, 255, 0.1);
+    font-weight: 500;
+  }
+  
+  .nav-icon {
+    margin-right: 0.75rem;
+    font-size: 1.2rem;
+    width: 24px;
+    text-align: center;
+  }
+  
+  .nav-label {
+    font-size: 1rem;
+  }
+  
+  .sidebar-footer {
+    margin-top: auto;
+    padding: 1rem;
+    border-top: 1px solid #3d405b;
+  }
+  
+  .lab-status {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+  }
+  
+  .status-dot {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+  }
+  
+  .status-dot.online {
+    background: #4caf50;
+  }

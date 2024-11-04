@@ -1,0 +1,46 @@
+.analysis-chart {
+  background: white;
+  border-radius: 8px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+  padding: 1.5rem;
+}
+
+.chart-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1rem;
+}
+
+.chart-header h3 {
+  margin: 0;
+  font-size: 1.1rem;
+  color: #1f2937;
+}
+
+.chart-actions {
+  display: flex;
+  gap: 0.5rem;
+  align-items: center;
+}
+
+.time-range {
+  padding: 0.25rem 0.5rem;
+  border: 1px solid #d1d5db;
+  border-radius: 4px;
+  font-size: 0.875rem;
+}
+
+.chart-container {
+  height: 300px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #f9fafb;
+  border-radius: 4px;
+}
+
+.chart-placeholder {
+  color: #6b7280;
+  font-size: 0.875rem;
+}

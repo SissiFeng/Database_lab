@@ -1,0 +1,31 @@
+# PostgreSQL Configuration
+postgresql:
+  host: localhost
+  port: 5432
+  database: lab_db
+  user: ${POSTGRES_USER}
+  password: ${POSTGRES_PASSWORD}
+
+# Snowflake Configuration
+snowflake:
+  account: ${SNOWFLAKE_ACCOUNT}
+  user: ${SNOWFLAKE_USER}
+  password: ${SNOWFLAKE_PASSWORD}
+  warehouse: COMPUTE_WH
+  database: LAB_DB
+  schema: PUBLIC
+
+# MongoDB Configuration
+mongodb:
+  host: localhost
+  port: 27017
+  database: lab_experiments
+  username: ${MONGO_USER}
+  password: ${MONGO_PASSWORD}
+
+# AWS Glue Configuration
+aws_glue:
+  region: us-west-2
+  job_name: lab_data_processing
+  temp_dir: s3://lab-glue-temp/
+  role_arn: ${GLUE_ROLE_ARN}
